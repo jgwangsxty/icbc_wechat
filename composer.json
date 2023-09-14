@@ -1,0 +1,19 @@
+{
+    "name": "wjgsxty/icbc_wechat",
+    "autoload": {
+        "psr-4": {
+            "Wjgsxty\\IcbcWechat\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "wjgsxty",
+            "email": "wangjianguo@4001002003.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+		"topthink/framework": "^5.1.10 || ^6.0.0",
+		"ext-json": "*"
+    }
+}
