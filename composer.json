@@ -1,8 +1,11 @@
 {
     "name": "wjgsxty/icbc_wechat",
     "autoload": {
+        "classmap": [
+			"src"
+		],
         "psr-4": {
-            "Wjgsxty\\IcbcWechat\\": "src/"
+            "wjgsxty\\icbc\\": "src"
         }
     },
     "license": "MIT",
