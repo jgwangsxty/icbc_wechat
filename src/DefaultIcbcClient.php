@@ -54,7 +54,6 @@ class DefaultIcbcClient{
 
 		function execute($request,$msgId,$appAuthToken){
 			$params = $this->prepareParams($request, $msgId, $appAuthToken);
-			echo json_encode($params);
             //发送请求
             //接收响应
             if($request["method"] == "GET" ){
