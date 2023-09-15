@@ -1,5 +1,7 @@
 <?php
-include_once 'IcbcConstants.php';
+// include_once 'IcbcConstants.php';
+namespace wjgsxty\icbc;
+use Exception;
 class RSA{
 	public static function sign($content,$privateKey,$algorithm){
 		if(IcbcConstants::$SIGN_SHA1RSA_ALGORITHMS == $algorithm){

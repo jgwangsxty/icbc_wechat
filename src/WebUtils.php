@@ -1,5 +1,9 @@
 <?php
-include_once 'IcbcConstants.php';
+// include_once 'IcbcConstants.php';
+namespace wjgsxty\icbc;
+
+use Exception;
+
 	class WebUtils{
 	   private static $version = "v2_20170324";
 

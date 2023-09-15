@@ -1,8 +1,10 @@
 <?php
-include_once 'IcbcConstants.php';
-include_once 'IcbcSignature.php';
-include_once 'WebUtils.php';
-include_once 'IcbcEncrypt.php';
+namespace wjgsxty\icbc;
+// include_once 'IcbcConstants.php';
+// include_once 'IcbcSignature.php';
+// include_once 'WebUtils.php';
+// include_once 'IcbcEncrypt.php';
+use Exception;
 
 class DefaultIcbcClient{
 		public $appId;
@@ -52,7 +54,7 @@ class DefaultIcbcClient{
 
 		function execute($request,$msgId,$appAuthToken){
 			$params = $this->prepareParams($request, $msgId, $appAuthToken);
-
+			echo json_encode($params);
             //发送请求
             //接收响应
             if($request["method"] == "GET" ){

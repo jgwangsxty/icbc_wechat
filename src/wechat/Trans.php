@@ -1,8 +1,8 @@
 <?php
 namespace wjgsxty\icbc\wechat;
-use DefaultIcbcClient;
 use Exception;
-use IcbcConstants;
+use wjgsxty\icbc\DefaultIcbcClient;
+use wjgsxty\icbc\IcbcConstants;
 
 class Trans {
 
@@ -61,13 +61,8 @@ class Trans {
             IcbcConstants::$SIGN_TYPE_RSA2,'','',
             $this->config['icbcPublicKey'],'','','','');
         $resp = $client->execute($request, $this->createMsgId(),'');//执行调用;msgId消息通讯唯一编号，要求每次调用独立生成，APP级唯一
-        // echo $resp;
         $respObj = json_decode($resp,true);
-        // if($respObj["return_code"] == 0){ //sucess
-        //     echo $respObj["return_msg"];
-        // }else{//fail
-        //     echo $respObj["return_msg"];
-        // }
+        
         return $respObj;
     }
 
@@ -89,7 +84,7 @@ class Trans {
                 "pay_mode"=>"9",
                 "access_type"=>"9",
                 "open_id" =>  $this->config['open_id'], 
-                "shop_appid" =>  $this->config['open_id'],
+                "shop_appid" =>  $this->config['wechat_app_id'],
                 "out_trade_no"=> $data['trade_no'], // 调用方的订单号，必须唯一
                 "decive_info"=>"anshifu_icbc",
                 "body"=> $data['body'],
@@ -102,7 +97,6 @@ class Trans {
                 "notify_type"=>"HS"
             ),
             'extraParams' => null,
-        
         );
 
         return $request;
@@ -116,27 +110,20 @@ class Trans {
 
     private function createRefundRequest($data) {
         $url = $this->config['icbc_domain'] . $this->config['pay_refund_url'];
-        // echo $url;
         $request = array(
-            "serviceUrl" => $url,
+            "serviceUrl" =>  $url,
             "method" => 'POST',
             "isNeedEncrypt" => false,
             "biz_content" => array(
                 "mer_id"=> $this->config['mer_id'],
-                "mer_prtcl_no"=>  $this->config['mer_prtcl_no'],
-                "icbc_appid"=>$this->config['app_id'], 
-                "oper_flag"=>"1",//0－子订单退货 ，1 - 消费退货
-                // "sub_order_id"=>"20001040336202005261544015",//子订单编号唯一 
-                "seq_no"=>$data['trade_no'],
-                "busi_type"=>"2",//原交易类型，2-使用工行订单号
-                // "ori_mer_id"=>"020001040311",//原交易商户编号 
-                // "sub_mer_id"=>"020001040336",//商户编号 
-                "sub_mer_prtcl_no"=>"0200010403360201",//协议编号 
-                "ret_sub_order_id"=>"113674649",
-                "outtrx_serial_no"=>"",//大订单加送字段
-                "classify_amt"=>"2",//清算金额 
-                "ori_trx_date"=>"2020-09-30",
-                "mer_acct" =>""//清算账号
+                "outtrx_serial_no"=> $data['refund_trade_no'], //外部退货流水号
+                "order_id"=> "", //消费工行订单号
+                "out_trade_no"=> $data['trade_no'], //外部订单号
+                "ret_total_amt"=> $data['refund_fee'], //退货总金额
+                "trnsc_ccy"=>"1", //交易币种
+                "icbc_appid"=> $this->config['app_id'], //商户在工行API平台的APPID
+                "mer_acct"=>"", //商户清算账号
+                "order_apd_inf"=>"apd_inf" //订单附加信息，订单关联
             ),
             'extraParams' => null,
         );
@@ -150,16 +137,12 @@ class Trans {
     public function payRefund($data){
         $request = $this->createRefundRequest($data);
         $client = new DefaultIcbcClient($this->config['app_id'], $this->config['privateKey'],
-        IcbcConstants::$SIGN_TYPE_RSA2,'','','','','','','');
+            IcbcConstants::$SIGN_TYPE_RSA2,'','',
+            $this->config['icbcPublicKey'],'','','','');
 
         $resp = $client->execute($request, $this->createMsgId(),'');//执行调用;msgId消息通讯唯一编号，要求每次调用独立生成，APP级唯一
         $respObj = json_decode($resp,true);
-        echo $respObj;
-        // if($respObj["return_code"] == 0){ //sucess
-        //     echo $respObj["return_msg"];
-        // }else{//fail
-        //     echo $respObj["return_msg"];
-        // }
+        
         return $respObj;
     }
 }

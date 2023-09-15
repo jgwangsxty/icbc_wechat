@@ -1,4 +1,6 @@
 <?php
+namespace wjgsxty\icbc;
+use Exception;
     class AES{
 /**
      * This was AES-128 / CBC / PKCS5Padding

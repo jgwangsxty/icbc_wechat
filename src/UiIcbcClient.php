@@ -1,9 +1,12 @@
 <?php
-include_once 'IcbcConstants.php';
-include_once 'IcbcSignature.php';
-include_once 'WebUtils.php';
-include_once 'IcbcEncrypt.php';
-include_once 'DefaultIcbcClient.php';
+// include_once 'IcbcConstants.php';
+// include_once 'IcbcSignature.php';
+// include_once 'WebUtils.php';
+// include_once 'IcbcEncrypt.php';
+// include_once 'DefaultIcbcClient.php';
+namespace wjgsxty\icbc;
+
+use Exception;
 
 class UiIcbcClient extends DefaultIcbcClient{
 	function __construct($appId,$privateKey,$signType,$charset,$format,$icbcPulicKey,

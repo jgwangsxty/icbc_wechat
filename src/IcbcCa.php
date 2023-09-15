@@ -1,4 +1,6 @@
 <?php
+namespace wjgsxty\icbc;
+use Exception;
 class IcbcCa{
 	public static function sign($content,$privatekey,$password){
 

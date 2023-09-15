@@ -1,7 +1,10 @@
 <?php
-include_once 'IcbcConstants.php';
-include_once 'IcbcCa.php';
-include_once 'RSA.php';
+// include_once 'IcbcConstants.php';
+// include_once 'IcbcCa.php';
+// include_once 'RSA.php';
+namespace wjgsxty\icbc;
+use Exception;
+
 	class IcbcSignature{
 		public static function sign($strToSign, $signType, $privateKey, $charset,$password){
 
