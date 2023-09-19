@@ -13,7 +13,6 @@ class TransEnum {
         'pay_refund_url' ,
         "mer_id",
         "mer_prtcl_no",
-        "open_id",
         'app_id',
         'privateKey',
         'icbcPublicKey',
@@ -28,6 +27,7 @@ class TransEnum {
                 'total_fee', // 订单金额，以分为单位
                 'trade_no', // 交易编号，唯一
                 'body', // 订单说明  text
+                'user_open_id', // 下单用户的openid
             ], 
             'optional' => [ 'method'],
         ], 

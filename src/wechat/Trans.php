@@ -83,7 +83,7 @@ class Trans {
                 "mer_prtcl_no"=>  $this->config['mer_prtcl_no'],
                 "pay_mode"=>"9",
                 "access_type"=>"9",
-                "open_id" =>  $this->config['open_id'], 
+                "open_id" =>  $data['user_open_id'], 
                 "shop_appid" =>  $this->config['wechat_app_id'],
                 "out_trade_no"=> $data['trade_no'], // 调用方的订单号，必须唯一
                 "decive_info"=>"anshifu_icbc",
