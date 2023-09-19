@@ -54,9 +54,9 @@ use Exception;
 
 
 		    $response = curl_exec($ch);
+			
 		    $resinfo = curl_getinfo($ch);
 		    curl_close($ch);
-
 		    if($resinfo["http_code"] != 200){
 		    	throw new Exception("response status code is not valid. status code: ".$resinfo["http_code"]);
 		    }

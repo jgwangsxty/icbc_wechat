@@ -100,7 +100,7 @@ class DefaultIcbcClient{
             $params[IcbcConstants::$APP_AUTH_TOKEN] = $appAuthToken;
             $params[IcbcConstants::$MSG_ID] = $msgId;
 
-            date_default_timezone_set(IcbcConstants::$DATE_TIMEZONE);
+            // date_default_timezone_set(IcbcConstants::$DATE_TIMEZONE);
             $params[IcbcConstants::$TIMESTAMP] = date(IcbcConstants::$DATE_TIME_FORMAT);
 
 			if ($request["isNeedEncrypt"]){

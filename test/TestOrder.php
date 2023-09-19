@@ -7,7 +7,7 @@ try {
     $icbc = wjgsxty\icbc\wechat\Trans::init($config);
 
     $data = [
-        'trade_no' => '122345', 
+        'trade_no' => '122345779', 
         'mer_url' => 'https://api-t.andaijia.com/callback/icbc', 
         'orig_date_time' => '2023-09-14T16:20:51', 
         'spbill_create_ip' => '115.29.150.155', 
