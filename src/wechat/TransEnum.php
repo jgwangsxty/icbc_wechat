@@ -38,7 +38,7 @@ class TransEnum {
         'payRefund' => [ // 退款
             'required' => [
                 'refund_trade_no',
-                'trade_no', // 原支付交易号
+                'pay_trade_no', // 原支付交易号
                 'refund_fee', 
             ], 
             'optional' => [],

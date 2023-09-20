@@ -118,7 +118,7 @@ class Trans {
                 "mer_id"=> $this->config['mer_id'],
                 "outtrx_serial_no"=> $data['refund_trade_no'], //外部退货流水号
                 "order_id"=> "", //消费工行订单号
-                "out_trade_no"=> $data['trade_no'], //外部订单号
+                "out_trade_no"=> $data['pay_trade_no'], //外部订单号
                 "ret_total_amt"=> $data['refund_fee'], //退货总金额
                 "trnsc_ccy"=>"1", //交易币种
                 "icbc_appid"=> $this->config['app_id'], //商户在工行API平台的APPID
