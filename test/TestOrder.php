@@ -14,6 +14,7 @@ try {
         'total_fee' => '1', // 订单金额，以分为单位
         'order_id' => '1234323232', // 订单id，唯一
         'body' => 'some info ', // 订单说明  text
+        'user_open_id' => 'ogTIEt1aKEl-IK9AWslF7E8ORO3A',
     ];
     $result = $icbc->payOrder($data);
     var_export($result);
